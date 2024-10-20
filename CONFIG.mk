@@ -121,7 +121,8 @@ BATCH96 = ++trainer.train.dataloader.batch_size=96 ++trainer.valid.dataloader.ba
 BATCH256 = ++trainer.train.dataloader.batch_size=256 ++trainer.valid.dataloader.batch_size=256 ++trainer.test.dataloader.batch_size=256
 BATCH384 = ++trainer.train.dataloader.batch_size=384 ++trainer.valid.dataloader.batch_size=384 ++trainer.test.dataloader.batch_size=384
 
-EPOCH24 = ++trainer.train.epochs=24 ++trainer.valid.epochs=24 ++trainer.test.epochs=24
+# EPOCH24 = ++trainer.train.epochs=24 ++trainer.valid.epochs=24 ++trainer.test.epochs=24
+EPOCH24 = ++trainer.train.epochs=24 ++trainer.valid.epochs=24 ++trainer.test.epochs=2
 EPOCH30 = ++trainer.train.epochs=30 ++trainer.valid.epochs=30 ++trainer.test.epochs=30
 EPOCH48 = ++trainer.train.epochs=48 ++trainer.valid.epochs=48 ++trainer.test.epochs=48
 
