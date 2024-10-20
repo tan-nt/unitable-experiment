@@ -80,7 +80,7 @@ experiments/%/.done_pretrain:
 > cd $(SRC) && $(TORCHRUN) -m main ++name=$* $(EXP_$*) ++trainer.mode="train"
 > touch $@
 
-test-experiments/%/.done_pretrain:
+test_experiments/%/.done_pretrain:
 > @echo "Using experiment configurations from variable EXP_$*"
 > cd $(SRC) && $(TORCHRUN) -m main ++name=$* $(EXP_$*) ++trainer.mode="test"
 > touch $@
