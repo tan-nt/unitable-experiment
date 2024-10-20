@@ -92,3 +92,5 @@ experiments/%/.done_finetune:
 > @echo "Finetuning phase 2 - starting from epoch 4"
 > cd $(SRC) && $(TORCHRUN) -m main ++name=$* $(EXP_$*) ++trainer.mode="train" ++trainer.trainer.snapshot="epoch3_snapshot.pt" ++trainer.trainer.beit_pretrained_weights=null
 > touch $@
+
+# make test-experiments/vqvae_mini/.done_pretrain
