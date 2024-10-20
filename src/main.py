@@ -19,6 +19,8 @@ log = logging.getLogger(__name__)
 
 @hydra.main(config_path="../configs", config_name="main", version_base="1.3")
 def main(cfg: DictConfig):
+    torch.cuda.empty_cache()
+
     torch.manual_seed(cfg.seed)
     ddp_setup()
     device = int(os.environ["LOCAL_RANK"])
