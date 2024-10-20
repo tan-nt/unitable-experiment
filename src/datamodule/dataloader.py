@@ -77,6 +77,7 @@ def generate_mask_for_batch_samples(
 def dataloader_vae(
     dataset: Dataset, batch_size: int, sampler: Sampler = None, **kwargs
 ) -> DataLoader:
+    batch_size = 8
     dataloader = DataLoader(
         dataset, batch_size, sampler=sampler, num_workers=8, pin_memory=True
     )
@@ -93,6 +94,7 @@ def dataloader_beit(
     sampler: Sampler = None,
     **kwargs
 ):
+    batch_size = 8
     dataloader = DataLoader(
         dataset,
         batch_size,
@@ -119,7 +121,7 @@ def dataloader_html(
     sampler=None,
 ) -> DataLoader:
     collate_fn = Collator(vocab, max_seq_len, label_type)
-
+    batch_size = 8
     dataloader = DataLoader(
         dataset,
         batch_size=batch_size,
