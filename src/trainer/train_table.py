@@ -394,6 +394,7 @@ class TableTrainer:
             "w",
             encoding="utf-8",
         ) as f:
+            print("save path=", os.path.join(save_to, cfg.save_to_prefix + f"_{self.device}.json"))
             json.dump(total_result, f, indent=4)
 
         return total_result
