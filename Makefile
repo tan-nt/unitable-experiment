@@ -85,7 +85,7 @@ test-experiments/%/.done_pretrain:
 > cd $(SRC) && $(TORCHRUN) -m main ++name=$* $(EXP_$*) ++trainer.mode="test"
 > touch $@
 
-test-experiments/%/.donefinetune:
+test_experiments/%/.donefinetune:
 > cd $(SRC) && $(TORCHRUN) -m main ++name=$* $(EXP_$*) ++trainer.mode="test" ++trainer.trainer.snapshot="epoch3_snapshot.pt" ++trainer.trainer.beit_pretrained_weights=null
 > touch $@
 
