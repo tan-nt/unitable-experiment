@@ -24,6 +24,10 @@ clean:
 > $(PIP) install -e .
 > touch $@
 
+.re-install:
+> $(PIP) uninstall torch torchtext torchvision torchaudio
+> $(PIP) install torch==2.3.0 torchtext==0.18 torchvision==0.18.0 torchaudio==2.3.0
+
 #
 # Download pretrained and UniTable model weights
 #
