@@ -80,6 +80,11 @@ experiments/%/.done_pretrain:
 > cd $(SRC) && $(TORCHRUN) -m main ++name=$* $(EXP_$*) ++trainer.mode="train"
 > touch $@
 
+test-experiments/%/.done_pretrain:
+> @echo "Using experiment configurations from variable EXP_$*"
+> cd $(SRC) && $(TORCHRUN) -m main ++name=$* $(EXP_$*) ++trainer.mode="test"
+> touch $@
+
 # finetuning from SSP weights for table structure, cell bbox and cell content
 experiments/%/.done_finetune:
 > @echo "Finetuning phase 1 - using experiment configurations from variable EXP_$*"
