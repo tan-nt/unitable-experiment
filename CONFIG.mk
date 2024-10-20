@@ -127,13 +127,13 @@ EPOCH48 = ++trainer.train.epochs=48 ++trainer.valid.epochs=48 ++trainer.test.epo
 
 # optimizer
 OPT_ADAMW = trainer/train/optimizer=adamw
-OPT_WD5e2 = ++trainer.train.optimizer.weight_decay=5e-2
+OPT_WD5e2 = ++trainer.train.optimizer.weight_decay=5e-2 ++trainer.test.optimizer.weight_decay=5e-2
 
 # lr + scheduler
-LR_5e4 = ++trainer.train.optimizer.lr=5e-4
-LR_3e4 = ++trainer.train.optimizer.lr=3e-4
-LR_1e4 = ++trainer.train.optimizer.lr=1e-4
-LR_8e5 = ++trainer.train.optimizer.lr=8e-5
+LR_5e4 = ++trainer.train.optimizer.lr=5e-4 ++trainer.test.optimizer.lr=5e-4 
+LR_3e4 = ++trainer.train.optimizer.lr=3e-4 ++trainer.test.optimizer.lr=5e-4 
+LR_1e4 = ++trainer.train.optimizer.lr=1e-4 ++trainer.test.optimizer.lr=5e-4 
+LR_8e5 = ++trainer.train.optimizer.lr=8e-5 ++trainer.test.optimizer.lr=5e-4 
 
 LR_cosine = trainer/train/lr_scheduler=cosine ++trainer.train.lr_scheduler.lr_lambda.min_ratio=5e-3
 LR_cosine93k_warm6k = $(LR_cosine) ++trainer.train.lr_scheduler.lr_lambda.total_step=93400 ++trainer.train.lr_scheduler.lr_lambda.warmup=5800
@@ -150,9 +150,13 @@ GRAD_CLIP12 = ++trainer.train.grad_clip=12
 
 # vqvae
 VQVAE_TEMP_1M = ++trainer.train.starting_temp=1. \
-	++trainer.train.temp_min=5e-3 ++trainer.train.temp_anneal_rate=1e-3
+	++trainer.train.temp_min=5e-3 ++trainer.train.temp_anneal_rate=1e-3 \
+	++trainer.test.starting_temp=1. \
+	++trainer.test.temp_min=5e-3 ++trainer.test.temp_anneal_rate=1e-3
 VQVAE_TEMP_2M = ++trainer.train.starting_temp=1. \
 	++trainer.train.temp_min=1e-3 ++trainer.train.temp_anneal_rate=2e-4
+	++trainer.test.starting_temp=1. \
+	++trainer.test.temp_min=1e-3 ++trainer.test.temp_anneal_rate=2e-4
 
 # pretraining specific
 TRANS448_VQVAE224_GRID28_MASK300 = ++trainer.trans_size=[448,448] ++trainer.vqvae_size=[224,224] ++trainer.grid_size=28 ++trainer.num_mask_patches=300
